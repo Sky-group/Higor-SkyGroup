@@ -1,0 +1,10 @@
+<ng-container *ngIf="!isLogged; else logado">
+    <button (click)="isLogged = true">Login</button>
+    <button (click)="xp = xp+1">Obter XP</button>
+</ng-container>
+<ng-template #logado>
+    <button>Administração</button>
+    <button>Perfil</button>
+    <button (click)="isLogged = false">Sair</button>
+</ng-template>
+<div *ngIf="xp >= 10">Level UP!</div>

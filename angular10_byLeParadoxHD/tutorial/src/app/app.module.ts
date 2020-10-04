@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 
 /* Components */
 import { AppComponent } from './components/app/app.component';
-import { HeaderComponent } from './components/header/header.component';
+import { UserComponent } from './components/user/user.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    UserComponent
   ],
   imports: [
     BrowserModule
