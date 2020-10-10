@@ -11,14 +11,14 @@ export class HelpButtonComponent {
   constructor(private dialog: MatDialog) { }
 
   openDialog() {
-    this.dialog.open(DialogElementsExampleDialog);
+    this.dialog.open(HelpDialog);
   }
 
 }
 
 
 @Component({
-  selector: 'dialog-elements-example-dialog',
-  templateUrl: 'dialog-elements-example-dialog.html',
+  selector: 'help-dialog',
+  templateUrl: 'help-dialog.html',
 })
-export class DialogElementsExampleDialog {}
+export class HelpDialog {}
