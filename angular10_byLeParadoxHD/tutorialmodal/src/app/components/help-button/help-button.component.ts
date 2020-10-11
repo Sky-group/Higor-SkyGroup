@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
+import { HelpDirective } from 'src/app/directives/help-info.directive';
 
 @Component({
   selector: 'help-button',
+  viewProviders: [HelpDirective],
   templateUrl: './help-button.component.html',
   styleUrls: ['./help-button.component.scss']
 })

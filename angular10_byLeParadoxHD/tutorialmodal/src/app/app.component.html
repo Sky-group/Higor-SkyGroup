@@ -15,7 +15,7 @@
       <mat-form-field class="example-full-width">
         <mat-label>Company (disabled)</mat-label>
         <input matInput disabled value="Google">
-        <help-button></help-button>
+        <help-button helpInfo [tipo]="'modal'" [info]="'sobre_compania'"></help-button>
       </mat-form-field>
     
       <table class="example-full-width" cellspacing="0"><tr>
@@ -26,6 +26,7 @@
         <td><mat-form-field class="example-full-width">
           <mat-label>Long Last Name That Will Be Truncated</mat-label>
           <input matInput>
+          <help-button helpInfo [tipo]="'popup'" [info]="'digite_nome'"></help-button>
         </mat-form-field></td>
       </tr></table>
     
