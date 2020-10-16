@@ -29,5 +29,23 @@ function init() {
         popupContainerElement.innerHTML = clickedCoordinate;
     })
 
+    // DragRotate Interaction
+    const dragRotateInteraction = new ol.interaction.DragRotate({
+        condition: ol.events.condition.altKeyOnly
+    })
+
+    map.addInteraction(dragRotateInteraction)
+
+    const drawInteraction = new ol.interaction.Draw({
+        type: 'LineString',
+    })
+
+    map.addInteraction(drawInteraction)
+
+    drawInteraction.on('drawend', function(e) {
+        let parser = new ol.format.GeoJSON();
+        let drawnFeatures = parser.writeFeaturesObject([e.feature]);
+        console.log(drawnFeatures)
+    })
 
 }
