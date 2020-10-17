@@ -1,6 +1,22 @@
 window.onload = init
 
 function init() {
+
+    //Controls
+    const fullScreenControl = new ol.control.FullScreen();
+    const mousePositionControl = new ol.control.MousePosition();
+    const overViewMapControl = new ol.control.OverviewMap({
+        collapsed: false,
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            })
+        ]
+    });
+    const scaleLineControl = new ol.control.ScaleLine();
+    const zoomSliderControl = new ol.control.ZoomSlider();
+    const zoomToExtentControl = new ol.control.ZoomToExtent();
+
     const map = new ol.Map({
         view : new ol.View({
             center: [0, 0],
@@ -11,7 +27,15 @@ function init() {
                 source: new ol.source.OSM()
             })
         ],
-        target: "js-map"
+        target: "js-map",
+        controls: ol.control.defaults().extend([
+            fullScreenControl,
+            mousePositionControl,
+            overViewMapControl,
+            scaleLineControl,
+            zoomSliderControl,
+            zoomToExtentControl
+        ])
     })
 
     const popupContainerElement = document.getElementById('popup-coordinates');
