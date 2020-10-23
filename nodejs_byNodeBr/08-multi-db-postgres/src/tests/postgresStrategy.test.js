@@ -16,15 +16,17 @@ describe('Postgres Strategy', function () {
     this.timeout(Infinity)
     this.beforeAll(async function () {
         await context.connect()
+        await context.delete()
+        await context.create(MOCK_HEROI_ATUALIZAR)
     })
     it('PostgreSQL Connection', async function () {
         const result = await context.isConnected()
         assert.deepStrictEqual(result, true)
     })
     it('cadastrar', async function () {
-        const result = await context.create(MOCK_HEROI_ATUALIZAR)
+        const result = await context.create(MOCK_HEROI_CADASTRAR)
         delete result.id
-        assert.deepStrictEqual(result, MOCK_HEROI_ATUALIZAR)
+        assert.deepStrictEqual(result, MOCK_HEROI_CADASTRAR)
     })
     it('listar', async function () {
         const [result] = await context.read({ nome: MOCK_HEROI_CADASTRAR.nome })
@@ -37,9 +39,14 @@ describe('Postgres Strategy', function () {
             ...MOCK_HEROI_ATUALIZAR,
             nome: 'Mulher Ervilha'
         }
-        console.log(itemAtualizar)
         const [result] = await context.update(itemAtualizar.id, novoItem)
         const [itemAtualizado] = await context.read({ id: itemAtualizar.id })
+        assert.deepStrictEqual(result, 1)
         assert.deepStrictEqual(itemAtualizado.nome, novoItem.nome)
+    })
+    it('remover por id', async function () {
+        const [item] = await context.read({})
+        const result = await context.delete(item.id)
+        assert.deepStrictEqual(result, 1)
     })
 })
