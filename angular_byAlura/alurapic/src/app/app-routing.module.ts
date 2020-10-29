@@ -3,11 +3,24 @@ import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { PhotoFormComponent } from './photos/photo-form/photo-form.component';
 import { PhotoListComponent } from './photos/photo-list/photo-list.component';
+import { PhotoListResolver } from './photos/photo-list/photo-list.resolver';
 
 const routes: Routes = [
-  { path: 'album/:albumId', component: PhotoListComponent },
-  { path: 'p/add', component: PhotoFormComponent },
-  { path: '**', component: NotFoundComponent }
+  { 
+    path: 'album/:albumId', 
+    component: PhotoListComponent,
+    resolve: {
+      photos: PhotoListResolver
+    }
+  },
+  { 
+    path: 'p/add', 
+    component: PhotoFormComponent 
+  },
+  { 
+    path: '**', 
+    component: NotFoundComponent 
+  }
 ];
 
 @NgModule({
