@@ -13,7 +13,7 @@ export class PhotoService {
 
     listFromAlbum(albumId: number) {
         return this.http
-        .get<Photo[]>(API + '/photos');
+        .get<Photo[]>(API + '/photos?albumId='+albumId);
     }
 }
 
