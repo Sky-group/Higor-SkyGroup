@@ -1,0 +1,10 @@
+<div class="container-fluid row">
+    <div *ngFor="let cols of rows" class="row">
+        <div *ngFor="let photo of cols" class="col-4">
+            <app-photo 
+                [url]="photo.url" 
+                [description]="photo.title">
+            </app-photo>
+        </div>
+    </div>
+</div>
