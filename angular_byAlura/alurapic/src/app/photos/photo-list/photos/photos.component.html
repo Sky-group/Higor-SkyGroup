@@ -4,11 +4,13 @@
 <div class="container-fluid">
     <div *ngFor="let cols of rows" class="row no-gutters">
         <div *ngFor="let photo of cols" class="col-md-4 col-sm-6">
-            <app-photo 
-                [url]="photo.url" 
-                [description]="photo.title">
-            </app-photo>
-            <h5>{{ photo.title }}</h5>
+            <app-card>
+                <app-photo 
+                    [url]="photo.url" 
+                    [description]="photo.title">
+                </app-photo>
+                <h5>{{ photo.title }}</h5>
+            </app-card>
         </div>
     </div>
 </div>
