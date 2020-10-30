@@ -3,7 +3,7 @@
 </p>
 <div class="container-fluid">
     <div *ngFor="let cols of rows" class="row no-gutters">
-        <div *ngFor="let photo of cols" class="col-md-4 col-sm-6">
+        <div *ngFor="let photo of cols" class="col-md-4 col-sm-6" darkenOnHover brightness="20%">
             <app-card>
                 <app-photo 
                     [url]="photo.url" 
