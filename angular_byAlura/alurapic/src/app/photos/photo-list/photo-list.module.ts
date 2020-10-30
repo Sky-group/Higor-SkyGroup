@@ -5,12 +5,14 @@ import { PhotoModule } from '../photo/photo.module';
 import { FilterByTitle } from './filter-by-title.pipe';
 import { PhotoListComponent } from './photo-list.component';
 import { PhotosComponent } from './photos/photos.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
     declarations: [
         PhotoListComponent,
         PhotosComponent,
-        FilterByTitle
+        FilterByTitle,
+        SearchComponent
     ],
     imports: [
         CommonModule,

@@ -1,12 +1,6 @@
-<div class="text-center">
-    <form>
-        <i class="fa fa-search mr-1"></i>
-        <input 
-        type="search" 
-        class="rounded" 
-        placeholder="search..." 
-        autofocus
-        (keyup)="debounce.next($event.target.value)">
-    </form>
-</div>
-<app-photos [photos]="photos | filterByTitle: filter"></app-photos>
+<app-search 
+    (onTyping)="filter = $event">
+</app-search>
+<app-photos 
+    [photos]="photos | filterByTitle: filter">
+</app-photos>
