@@ -131,4 +131,5 @@ describe('Suite de testes da API Heroes', function () {
         assert.ok(statusCode === 200)
         assert.deepStrictEqual(dados.message, 'Não foi possível atualizar!')
     })
+
 })
