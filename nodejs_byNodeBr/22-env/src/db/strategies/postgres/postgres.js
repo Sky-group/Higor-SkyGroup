@@ -42,14 +42,13 @@ class Postgres extends ICrud {
         return this._schema.findAll({where: item, raw: true})
     }
     static async connect() {
-        const connection = new Sequelize(
-            'heroes',
-            'higor',
-            'higor', {
-                host: 'localhost',
-                dialect: 'postgres',
+        const connection = new Sequelize(process.env.POSTGRES_URL, {
                 quoteIdentifiers: false,
-                logging: false
+                logging: false,
+                ssl: process.env.SSL_DB,
+                dialectOptions: {
+                    ssl: process.env.SSL_DB
+                }
             }
         )
         return connection
